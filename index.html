@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <!-- Always force latest IE rendering engine or request Chrome Frame -->
+    <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>Glascontainer in Münster</title>
+    <link href="stylesheets/normalize.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/all.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.css" media="screen" rel="stylesheet" type="text/css" />
+    <script src="javascripts/all.js" type="text/javascript"></script>
+    <script src="javascripts/glass_containers.js" type="text/javascript"></script>
+    <script src="https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.js" type="text/javascript"></script>
+    <script src="//use.typekit.net/hlr7wrg.js" type="text/javascript"></script>
+    <script>
+      try{Typekit.load();}catch(e){}
+    </script>
+  </head>
+  <body class='index'>
+    <div class='container'>
+      <div id='wrapper'>
+        <div id='textbox'>
+          <h1>Glascontainer in Münster</h1>
+          <p>
+            Ein Projekt des
+            <a href='http://codeformuenster.github.io/opendataday/'>Open Data Day 2014</a>
+            in Münster von
+            <a href='https://twiter.com/peterlih'>@peterlih</a>
+            .
+          </p>
+        </div>
+      </div>
+      <div id='map'></div>
+    </div>
+    <script>
+      var map = L.mapbox.map('map', 'peterlih.hbea31of').setView([51.962, 7.625], 13);
+      map.featureLayer.setGeoJSON(glass_containers);
+      
+      if (Modernizr.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (pos) {
+          map.setView([pos.coords.latitude, pos.coords.longitude], 16);
+        });
+      }
+    </script>
+  </body>
+</html>
