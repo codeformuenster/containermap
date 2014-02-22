@@ -11,18 +11,35 @@ h1 {
 }
 
 p {
-  font-family: "ff-meta-web-pro";
-  margin: -10px 0px 15px 12px;
+  font-family: "ff-meta-web-pro", sans-serif;
+  margin: -5px 0px 10px;
   color: #E83131;
+  text-align: center;
+}
+
+a {
+  color: #E83131;
+  font-weight: 700;
+  &:hover {
+    text-decoration: none;
+  };
+}
+
+#wrapper {
+  position: absolute;
+  margin-bottom: 0px;
+  bottom: 0px;
+  width: 100%;
+  z-index: 2;
+  text-align: center;
 }
 
 #textbox {
-  position: fixed;
-  bottom: 0px;
+  margin: 0 auto;
+  width: 460px;
   background-color: rgba(255, 255, 255, 0.85);
-  padding: 0px 15px;
+  padding: 1px 15px 8px;
   z-index: 2;
-  box-shadow: 5px -5px 0px #aaa;
 }
 
 #map {
