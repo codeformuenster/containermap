@@ -9,6 +9,7 @@
 
 # Ignore the build directory
 /build
+/bower_components
 
 # Ignore Sass' cache
 /.sass-cache
