@@ -9,6 +9,12 @@ title: Glascontainer in Münster
       Ein Projekt des Open Data Day 2014 in Münster.
   #map
 
-%script  
+:javascript
   var map = L.mapbox.map('map', 'peterlih.hbea31of').setView([51.962, 7.625], 13);
   map.featureLayer.setGeoJSON(glass_containers);
+
+  if (Modernizr.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (pos) {
+      map.setView([pos.coords.latitude, pos.coords.longitude], 16);
+    });
+  }
