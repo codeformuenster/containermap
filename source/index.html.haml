@@ -1,0 +1,14 @@
+---
+title: Glascontainer in Münster
+---
+
+.container
+  #textbox
+    %h1 Glascontainer in Münster
+    %p
+      Ein Projekt des Open Data Day 2014 in Münster.
+  #map
+
+%script  
+  var map = L.mapbox.map('map', 'peterlih.hbea31of').setView([51.962, 7.625], 13);
+  map.featureLayer.setGeoJSON(glass_containers);
