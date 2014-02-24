@@ -16,7 +16,22 @@ title: Glascontainer in Münster
 
 :javascript
   var map = L.mapbox.map('map', 'peterlih.hbea31of').setView([51.962, 7.625], 13);
-  var containers = L.mapbox.featureLayer(glass_containers).addTo(map);
+
+  var containers = new L.mapbox.featureLayer(glass_containers);
+  containers.on('click',function(e){
+
+    var content = '';
+    for (i in e.layer.feature.properties){
+      if ( i.match(/recycling/)) {
+        content = content + '<li>' + i + ': ' + e.layer.feature.properties[i]
+      }
+    }
+
+    e.layer.bindPopup(content);
+    e.layer.openPopup();
+  });
+  containers.addTo(map);
+
 
   if (Modernizr.geolocation) {
     navigator.geolocation.getCurrentPosition(function (pos) {
