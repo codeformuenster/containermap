@@ -18,6 +18,15 @@ title: Glascontainer in Münster
   var map = L.mapbox.map('map', 'peterlih.hbea31of').setView([51.962, 7.625], 13);
   var containers = L.mapbox.featureLayer(glass_containers).addTo(map);
 
+  var attrib = [
+      '<a href="http://www.openstreetmap.org">Karte hergestellt aus OpenStreetMap-Daten</a>',
+      'Lizenz: <a href="http://opendatacommons.org/licenses/odbl/">Open Database License (ODbL)</a>',
+      'Map tiles: <a href="http://www.mapbox.com/">mapbox</a>'
+  ];
+
+  var info = new L.mapbox.infoControl({editLink:true});
+  info.addInfo(attrib.join(' | ')).addTo(map);
+
   if (Modernizr.geolocation) {
     navigator.geolocation.getCurrentPosition(function (pos) {
       function posToLatLong(pos) { return [pos.coords.latitude, pos.coords.longitude]; }
