@@ -27,6 +27,9 @@
             in Münster von
             <a href='https://twiter.com/peterlih'>@peterlih</a>
             .
+            <br />
+            Daten:
+            <a href="http://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap-Mitwirkende</a>
           </p>
         </div>
       </div>
@@ -35,14 +38,14 @@
     <script>
       var map = L.mapbox.map('map', 'peterlih.hbea31of').setView([51.962, 7.625], 13);
       var containers = L.mapbox.featureLayer(glass_containers).addTo(map);
-      
+
       if (Modernizr.geolocation) {
         navigator.geolocation.getCurrentPosition(function (pos) {
           function posToLatLong(pos) { return [pos.coords.latitude, pos.coords.longitude]; }
           function zoomToPos(pos, geoJSON) { return 16; } // TODO add intelligence
-      
+
           map.setView(posToLatLong(pos), zoomToPos(pos, glass_containers));
-      
+
           // Marker for my position
           L.marker(posToLatLong(pos)).addTo(map);
         });
